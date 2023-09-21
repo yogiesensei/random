@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Random Generate Name</h1>
+        <p>Generated Name: <span id="random"></span></p>
+        <button id="generate">Generate</button>
+    </main>
+</body>
+<script>
+    const generate = document.getElementById('generate')
+    const random = document.getElementById('random')
+    generate.addEventListener('click', ()=> {
+        fetch('/generate').then(res => res.text()).then(data => {
+            random.innerText = data
+        })
+    })
+</script>
+</html>
